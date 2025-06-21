@@ -8,6 +8,13 @@
 
 This is a keyboard firmware based on the [tmk\_keyboard firmware](https://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR and ARM controllers, and more specifically, the [OLKB product line](https://olkb.com), the [ErgoDox EZ](https://ergodox-ez.com) keyboard, and the Clueboard product line.
 
+## Ploopy Nano flashing
+First put it into bootloader mode by shorting the bootloader pins (by holding the button) while plugging it in, then run:
+
+```
+make ploopyco/trackball_nano/rev1_001:danmou:flash
+```
+
 ## Documentation
 
 * [See the official documentation on docs.qmk.fm](https://docs.qmk.fm)

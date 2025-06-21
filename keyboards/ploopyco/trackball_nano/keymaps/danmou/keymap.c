@@ -28,8 +28,8 @@
 // https://recordsetter.com/world-record/index-finger-taps-minute/46066
 #define LED_CMD_TIMEOUT 25
 #define SCROLL_LOCK_TIMEOUT 200
-#define DELTA_X_THRESHOLD 60
-#define DELTA_Y_THRESHOLD 15
+#define DELTA_X_THRESHOLD 40
+#define DELTA_Y_THRESHOLD 25
 
 typedef enum {
     // You could theoretically define 0b00 and send it by having a macro send
@@ -86,18 +86,18 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
         delta_y += mouse_report.y;
 
         if (delta_x > DELTA_X_THRESHOLD) {
-            mouse_report.h = -1;
+            mouse_report.h = 1;
             delta_x        = 0;
         } else if (delta_x < -DELTA_X_THRESHOLD) {
-            mouse_report.h = 1;
+            mouse_report.h = -1;
             delta_x        = 0;
         }
 
         if (delta_y > DELTA_Y_THRESHOLD) {
-            mouse_report.v = 1;
+            mouse_report.v = -1;
             delta_y        = 0;
         } else if (delta_y < -DELTA_Y_THRESHOLD) {
-            mouse_report.v = -1;
+            mouse_report.v = 1;
             delta_y        = 0;
         }
         mouse_report.x = 0;
